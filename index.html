@@ -99,7 +99,7 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
 .stg.s-chk{border-color:var(--amber);box-shadow:0 0 14px rgba(255,184,0,.18)}
 .stg.s-pass{border-color:var(--green);box-shadow:0 0 14px rgba(0,255,136,.18)}
 .stg.s-fail{border-color:var(--red);box-shadow:0 0 14px rgba(255,51,102,.18)}
-.stg.s-blk{border-color:var(--grey);opacity:.55}
+.stg.s-blk{border-color:var(--grey);opacity:.45;filter:grayscale(.4)}
 .stg.s-idle{border-color:var(--border)}
 
 .stg-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
@@ -192,9 +192,51 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
 .neon-a{color:var(--amber);text-shadow:0 0 8px rgba(255,184,0,.4)}
 .neon-b{color:var(--blue);text-shadow:0 0 8px rgba(45,156,255,.4)}
 
+/* ── MODEL REGISTRY + PERFORMANCE ROW ── */
+.model-perf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* model registry */
+.mdl-sel-wrap{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.mdl-sel-lbl{font-size:.62rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
+.mdl-dropdown{background:var(--bg1);border:1px solid var(--border);border-radius:6px;color:var(--txt1);font-size:.72rem;font-weight:600;padding:6px 10px;cursor:pointer;outline:none;flex:1;max-width:220px}
+.mdl-dropdown:focus{border-color:var(--blue);box-shadow:0 0 0 2px rgba(45,156,255,.12)}
+.mdl-dropdown option{background:var(--bg1)}
+.mdl-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mdl-info-item{background:var(--bg1);border:1px solid var(--border);border-radius:6px;padding:8px 10px}
+.mdl-info-key{font-size:.55rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.mdl-info-val{font-size:.72rem;font-weight:700;color:var(--txt1)}
+
+/* performance monitoring */
+.perf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.perf-metric{background:var(--bg1);border:1px solid var(--border);border-radius:6px;padding:10px;transition:border-color .3s,box-shadow .3s}
+.perf-metric.pm-alert{border-color:var(--red);box-shadow:0 0 14px rgba(255,51,102,.25)}
+.perf-name{font-size:.55rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.perf-curr{font-size:1.25rem;font-weight:700;line-height:1}
+.perf-compare{display:flex;align-items:center;justify-content:space-between;margin-top:5px}
+.perf-prev-lbl{font-size:.58rem;color:var(--txt3)}
+.perf-delta{font-size:.6rem;font-weight:700;padding:2px 6px;border-radius:3px;border:1px solid transparent}
+.pd-pos{background:var(--gbg);color:var(--green);border-color:var(--green2)}
+.pd-neg-warn{background:var(--abg);color:var(--amber);border-color:var(--amber2)}
+.pd-neg-crit{background:var(--rbg);color:var(--red);border-color:var(--red2);animation:flash 1s infinite}
+
+/* ── CIRCUIT BREAKER BANNER ── */
+.cb-banner{display:none;background:linear-gradient(135deg,rgba(255,51,102,.14),rgba(255,51,102,.04));border:2px solid var(--red);border-radius:10px;padding:16px 24px;text-align:center}
+.cb-banner.show{display:block}
+.cb-title{font-size:.95rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:2px;margin-bottom:5px;animation:flash 1.5s infinite}
+.cb-sub{font-size:.65rem;color:var(--txt2);margin-bottom:8px}
+.cb-reason{font-size:.68rem;font-weight:700;color:var(--amber);padding:4px 14px;background:rgba(255,184,0,.07);border:1px solid rgba(255,184,0,.28);border-radius:4px;display:inline-block}
+
+/* ── SIMULATION DROPDOWN ── */
+.sim-wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sim-lbl{font-size:.62rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
+.sim-select{background:var(--bg1);border:1px solid var(--border);border-radius:6px;color:var(--txt1);font-size:.68rem;font-weight:600;padding:5px 8px;cursor:pointer;outline:none;min-width:160px}
+.sim-select:focus{border-color:var(--amber);box-shadow:0 0 0 2px rgba(255,184,0,.12)}
+.sim-select option{background:var(--bg1)}
+
 @media(max-width:1100px){
   .top-row{grid-template-columns:1fr 1fr}
   .bot-row{grid-template-columns:1fr}
+  .model-perf-row{grid-template-columns:1fr}
 }
 @media(max-width:700px){
   .top-row{grid-template-columns:1fr}
@@ -232,11 +274,8 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
               <stop offset="100%" stop-color="#00ff88"/>
             </linearGradient>
           </defs>
-          <!-- track -->
           <path d="M10 66 A50 50 0 0 1 110 66" fill="none" stroke="#1e3558" stroke-width="8" stroke-linecap="round"/>
-          <!-- fill -->
           <path id="hArc" d="M10 66 A50 50 0 0 1 110 66" fill="none" stroke="url(#hg)" stroke-width="8" stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="0"/>
-          <!-- needle -->
           <line id="hNeedle" x1="60" y1="66" x2="60" y2="24" stroke="#e2e8f0" stroke-width="2.5" stroke-linecap="round" transform="rotate(0 60 66)"/>
           <circle cx="60" cy="66" r="4" fill="#1a2540" stroke="#e2e8f0" stroke-width="1.5"/>
         </svg>
@@ -279,6 +318,81 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
     </div>
   </div>
 
+  <!-- MODEL REGISTRY + PERFORMANCE MONITORING -->
+  <div class="model-perf-row">
+
+    <!-- Model Registry Panel -->
+    <div class="card">
+      <div class="card-lbl">Model Registry</div>
+      <div class="mdl-sel-wrap">
+        <span class="mdl-sel-lbl">Active Model:</span>
+        <select class="mdl-dropdown" id="modelSelect" onchange="switchModel(this.value)">
+          <option value="personalization">Personalization</option>
+          <option value="churn">Churn</option>
+          <option value="portout">Port-out</option>
+          <option value="fraud">Fraud</option>
+        </select>
+      </div>
+      <div class="mdl-info-grid">
+        <div class="mdl-info-item">
+          <div class="mdl-info-key">Model ID</div>
+          <div class="mdl-info-val" id="mdlId">—</div>
+        </div>
+        <div class="mdl-info-item">
+          <div class="mdl-info-key">Version</div>
+          <div class="mdl-info-val" id="mdlVer">—</div>
+        </div>
+        <div class="mdl-info-item">
+          <div class="mdl-info-key">Last Trained</div>
+          <div class="mdl-info-val" id="mdlDate">—</div>
+        </div>
+        <div class="mdl-info-item">
+          <div class="mdl-info-key">Owner</div>
+          <div class="mdl-info-val" id="mdlOwner">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Model Performance Monitoring Panel -->
+    <div class="card">
+      <div class="card-lbl">Model Performance — Current vs Previous Week</div>
+      <div class="perf-grid">
+        <div class="perf-metric" id="pm-card-auc">
+          <div class="perf-name">AUC</div>
+          <div class="perf-curr neon-b" id="pm-auc-curr">—</div>
+          <div class="perf-compare">
+            <span class="perf-prev-lbl" id="pm-auc-prev">Prev: —</span>
+            <span class="perf-delta pd-pos" id="pm-auc-delta">—</span>
+          </div>
+        </div>
+        <div class="perf-metric" id="pm-card-accuracy">
+          <div class="perf-name">Accuracy</div>
+          <div class="perf-curr neon-b" id="pm-accuracy-curr">—</div>
+          <div class="perf-compare">
+            <span class="perf-prev-lbl" id="pm-accuracy-prev">Prev: —</span>
+            <span class="perf-delta pd-pos" id="pm-accuracy-delta">—</span>
+          </div>
+        </div>
+        <div class="perf-metric" id="pm-card-precision">
+          <div class="perf-name">Precision</div>
+          <div class="perf-curr neon-b" id="pm-precision-curr">—</div>
+          <div class="perf-compare">
+            <span class="perf-prev-lbl" id="pm-precision-prev">Prev: —</span>
+            <span class="perf-delta pd-pos" id="pm-precision-delta">—</span>
+          </div>
+        </div>
+        <div class="perf-metric" id="pm-card-recall">
+          <div class="perf-name">Recall</div>
+          <div class="perf-curr neon-b" id="pm-recall-curr">—</div>
+          <div class="perf-compare">
+            <span class="perf-prev-lbl" id="pm-recall-prev">Prev: —</span>
+            <span class="perf-delta pd-pos" id="pm-recall-delta">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- CONTROL BAR -->
   <div class="ctrl-bar">
     <span style="font-size:.65rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:1px">Controls</span>
@@ -287,11 +401,32 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
     <button class="btn btn-amber" onclick="injectDrift()">INJECT DRIFT</button>
     <button class="btn btn-red" onclick="injectData()">INJECT FAILURE</button>
     <button class="btn btn-grey" onclick="resetAll()">RESET</button>
+    <div class="ctrl-sep"></div>
+    <div class="sim-wrap">
+      <span class="sim-lbl">Simulate Issue:</span>
+      <select class="sim-select" id="simSelect">
+        <option value="">— Select —</option>
+        <option value="missing-data">Missing Data</option>
+        <option value="drift-spike">Data Drift Spike</option>
+        <option value="volume-drop">Volume Drop</option>
+        <option value="schema">Schema Mismatch</option>
+        <option value="model-fail">Model Failure</option>
+        <option value="perf-drop">Performance Drop</option>
+      </select>
+      <button class="btn btn-amber" onclick="runSimulation()">RUN</button>
+    </div>
     <div class="speed-wrap">
       <span style="font-size:.62rem;color:var(--txt3);text-transform:uppercase;letter-spacing:1px">Speed:</span>
       <button class="spd on" id="spd0" onclick="setSpd(1,'spd0')">Normal</button>
       <button class="spd" id="spd1" onclick="setSpd(3,'spd1')">Fast</button>
     </div>
+  </div>
+
+  <!-- CIRCUIT BREAKER BANNER -->
+  <div class="cb-banner" id="cbBanner">
+    <div class="cb-title">&#x25A0; PIPELINE PAUSED — CIRCUIT BREAKER ACTIVE</div>
+    <div class="cb-sub">All downstream stages blocked. Data integrity and business consumption protected.</div>
+    <div class="cb-reason" id="cbReason">Critical failure detected</div>
   </div>
 
   <!-- REVALIDATION BANNER -->
@@ -313,7 +448,6 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
     <!-- Drift panel -->
     <div class="drift-panel">
       <div class="sec-ttl">Drift Detection Monitor</div>
-
       <div class="drift-axis"><span>0%</span><span>Drift Score (threshold 8%)</span><span>15%</span></div>
       <div class="drift-bar-bg">
         <div class="drift-fill" id="driftFill" style="width:20%;background:var(--green)"></div>
@@ -327,11 +461,9 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
         <div class="drift-badge" id="driftBadge" style="background:var(--gbg);color:var(--green);border-color:var(--green2)">NORMAL</div>
       </div>
       <div class="drift-alert" id="driftAlert">DRIFT DETECTED — PIPELINE BLOCKED</div>
-
       <div class="spark-lbl">Drift History (last 10 runs)</div>
       <svg id="sparkSvg" viewBox="0 0 200 44">
         <rect width="200" height="44" fill="#070b16" rx="4"/>
-        <!-- threshold line at 8%: y = 44-(8/15)*44 = 44-23.47 = 20.53 -->
         <line x1="0" y1="20.5" x2="200" y2="20.5" stroke="#ffb800" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
         <polygon id="sparkArea" fill="rgba(0,255,136,.1)"/>
         <polyline id="sparkLine" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -356,11 +488,72 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
 
 <script>
 // ═══════════════════════════════════════════════════════
+//  MODEL REGISTRY DATA
+// ═══════════════════════════════════════════════════════
+const MODEL_REGISTRY = {
+  personalization: {
+    label: 'Personalization',
+    id: 'MDL-P-2024-001',
+    version: 'v3.2.1',
+    lastTrained: '2026-04-22',
+    owner: 'Personalization Team',
+    metrics: {
+      auc:       { curr: 0.912, prev: 0.908 },
+      accuracy:  { curr: 0.884, prev: 0.871 },
+      precision: { curr: 0.876, prev: 0.869 },
+      recall:    { curr: 0.891, prev: 0.882 }
+    }
+  },
+  churn: {
+    label: 'Churn',
+    id: 'MDL-C-2024-003',
+    version: 'v2.8.0',
+    lastTrained: '2026-04-20',
+    owner: 'Retention Analytics',
+    // AUC drops 13.1% from prev week — triggers HIGH severity alert
+    metrics: {
+      auc:       { curr: 0.812, prev: 0.934 },
+      accuracy:  { curr: 0.856, prev: 0.848 },
+      precision: { curr: 0.843, prev: 0.839 },
+      recall:    { curr: 0.862, prev: 0.857 }
+    }
+  },
+  portout: {
+    label: 'Port-out',
+    id: 'MDL-PO-2024-002',
+    version: 'v1.5.4',
+    lastTrained: '2026-04-18',
+    owner: 'Churn Prevention',
+    metrics: {
+      auc:       { curr: 0.798, prev: 0.812 },
+      accuracy:  { curr: 0.771, prev: 0.803 },
+      precision: { curr: 0.791, prev: 0.809 },
+      recall:    { curr: 0.823, prev: 0.831 }
+    }
+  },
+  fraud: {
+    label: 'Fraud',
+    id: 'MDL-F-2024-007',
+    version: 'v4.1.2',
+    lastTrained: '2026-04-25',
+    owner: 'Risk & Compliance',
+    metrics: {
+      auc:       { curr: 0.943, prev: 0.941 },
+      accuracy:  { curr: 0.921, prev: 0.918 },
+      precision: { curr: 0.934, prev: 0.929 },
+      recall:    { curr: 0.912, prev: 0.908 }
+    }
+  }
+};
+
+const METRIC_LABELS = { auc: 'AUC', accuracy: 'Accuracy', precision: 'Precision', recall: 'Recall' };
+
+// ═══════════════════════════════════════════════════════
 //  STATE
 // ═══════════════════════════════════════════════════════
 const S = {
   paused: false,
-  mult: 1,          // speed multiplier (1=normal, 3=fast)
+  mult: 1,
   running: false,
   runN: 0,
   failN: 0,
@@ -369,9 +562,11 @@ const S = {
   driftHist: [3.0,2.8,3.1,2.9,3.4,3.2,3.0,3.3,2.9,3.0],
   alerts: [],
   runsSinceFail: 0,
-  pendingInject: null,  // 'drift' | 'data' | 'perf'
+  pendingInject: null,
   nextIn: 45,
   nextTimer: null,
+  activeModel: 'personalization',
+  circuitOpen: false,
 };
 
 // ═══════════════════════════════════════════════════════
@@ -405,7 +600,6 @@ const STAGES = [
     ]},
 ];
 
-// Live stage state
 let SS = STAGES.map(() => ({ st:'idle', pct:0, chks:[] }));
 
 // ═══════════════════════════════════════════════════════
@@ -422,6 +616,94 @@ function waitResume() {
 }
 
 // ═══════════════════════════════════════════════════════
+//  MODEL REGISTRY
+// ═══════════════════════════════════════════════════════
+function switchModel(key) {
+  if (!MODEL_REGISTRY[key]) return;
+  S.activeModel = key;
+  renderModelInfo();
+  renderPerfMetrics();
+  addAlert('info', 'Model Registry', `Active model: ${MODEL_REGISTRY[key].label} (${MODEL_REGISTRY[key].id})`, `Owner: ${MODEL_REGISTRY[key].owner}`);
+}
+
+function renderModelInfo() {
+  const m = MODEL_REGISTRY[S.activeModel];
+  $('mdlId').textContent    = m.id;
+  $('mdlVer').textContent   = m.version;
+  $('mdlDate').textContent  = m.lastTrained;
+  $('mdlOwner').textContent = m.owner;
+}
+
+function renderPerfMetrics() {
+  const m = MODEL_REGISTRY[S.activeModel];
+  let alertsFired = 0;
+
+  Object.keys(m.metrics).forEach(key => {
+    const { curr, prev } = m.metrics[key];
+    const delta = (curr - prev) / prev * 100;
+    const absDelta = Math.abs(delta);
+    const isDropCrit = delta < 0 && absDelta > 10;
+    const isDropWarn = delta < 0 && absDelta > 5 && !isDropCrit;
+
+    $(`pm-${key}-curr`).textContent = (curr * 100).toFixed(1) + '%';
+    $(`pm-${key}-prev`).textContent = `Prev: ${(prev * 100).toFixed(1)}%`;
+
+    const deltaEl = $(`pm-${key}-delta`);
+    deltaEl.textContent = (delta >= 0 ? '+' : '') + delta.toFixed(1) + '%';
+    deltaEl.className = 'perf-delta ' + (isDropCrit ? 'pd-neg-crit' : isDropWarn ? 'pd-neg-warn' : 'pd-pos');
+
+    const card = $(`pm-card-${key}`);
+    if (isDropCrit) {
+      card.classList.add('pm-alert');
+      if (alertsFired === 0) {
+        alertsFired++;
+        addAlert('crit', 'Performance Monitor',
+          `${METRIC_LABELS[key]} dropped ${absDelta.toFixed(1)}% vs last week — HIGH SEVERITY`,
+          'Recommend: retrain or rollback immediately');
+      }
+    } else {
+      card.classList.remove('pm-alert');
+    }
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+//  CIRCUIT BREAKER
+// ═══════════════════════════════════════════════════════
+function showCircuitBreaker(reason) {
+  S.circuitOpen = true;
+  $('cbReason').textContent = reason;
+  $('cbBanner').classList.add('show');
+}
+
+function hideCircuitBreaker() {
+  S.circuitOpen = false;
+  $('cbBanner').classList.remove('show');
+}
+
+// ═══════════════════════════════════════════════════════
+//  ISSUE SIMULATION ENGINE
+// ═══════════════════════════════════════════════════════
+const SIM_MAP = {
+  'missing-data': { ftype: 'missing-data', label: 'Missing Data' },
+  'drift-spike':  { ftype: 'drift',        label: 'Data Drift Spike' },
+  'volume-drop':  { ftype: 'data',         label: 'Volume Drop' },
+  'schema':       { ftype: 'schema',       label: 'Schema Mismatch' },
+  'model-fail':   { ftype: 'model-fail',   label: 'Model Failure' },
+  'perf-drop':    { ftype: 'perf',         label: 'Performance Drop' },
+};
+
+function runSimulation() {
+  const sel = $('simSelect').value;
+  if (!sel) { addAlert('warn', 'Simulation Engine', 'No issue type selected', 'Choose an issue from the dropdown'); return; }
+  const sim = SIM_MAP[sel];
+  addAlert('warn', 'Simulation Engine', `Injecting: ${sim.label}`, 'Pipeline starting with simulated failure');
+  $('simSelect').value = '';
+  if (S.running) { S.pendingInject = sim.ftype; addAlert('info', 'Simulation Engine', 'Pipeline active — failure queued for next run', ''); return; }
+  pipeline(sim.ftype);
+}
+
+// ═══════════════════════════════════════════════════════
 //  RENDER PIPELINE
 // ═══════════════════════════════════════════════════════
 function renderPipe() {
@@ -430,8 +712,6 @@ function renderPipe() {
 
   STAGES.forEach((stg, i) => {
     const ss = SS[i];
-
-    // Class maps
     const sMap = {idle:'s-idle',run:'s-run',chk:'s-chk',pass:'s-pass',fail:'s-fail',blk:'s-blk'};
     const bMap = {idle:'b-idle',run:'b-run',chk:'b-chk',pass:'b-pass',fail:'b-fail',blk:'b-blk'};
     const lMap = {idle:'IDLE',run:'RUNNING',chk:'CHECKING',pass:'PASS',fail:'FAILED',blk:'BLOCKED'};
@@ -453,7 +733,6 @@ function renderPipe() {
     const stgDiv = document.createElement('div');
     stgDiv.className = 'stg-wrap';
 
-    // connector (before stage, except first)
     const prevSt = i > 0 ? SS[i-1].st : null;
     const connHtml = i > 0 ? (() => {
       const act = (prevSt==='pass') && st!=='blk';
@@ -497,10 +776,10 @@ function renderAlerts() {
   }
   $('alertCnt').textContent = `${S.alerts.length} alert${S.alerts.length!==1?'s':''}`;
   feed.innerHTML = S.alerts.map(a => {
-    const cls = a.type==='crit'?'a-crit':a.type==='warn'?'a-warn':'a-info';
+    const cls  = a.type==='crit'?'a-crit':a.type==='warn'?'a-warn':'a-info';
     const tcls = a.type==='crit'?'a-type-crit':a.type==='warn'?'a-type-warn':'a-type-info';
-    const tag = a.type==='crit'?'[CRITICAL]':a.type==='warn'?'[WARNING]':'[INFO]';
-    const act = a.action ? ` <em style="color:var(--txt3)">→ ${a.action}</em>` : '';
+    const tag  = a.type==='crit'?'[CRITICAL]':a.type==='warn'?'[WARNING]':'[INFO]';
+    const act  = a.action ? ` <em style="color:var(--txt3)">→ ${a.action}</em>` : '';
     return `<div class="a-item ${cls}">
       <span class="a-time">${a.t}</span>
       <span class="${tcls}">${tag}</span>
@@ -577,10 +856,8 @@ function updateDash() {
   $('slaBar').style.background = sla>=95?'var(--green)':sla>=85?'var(--amber)':'var(--red)';
   if (S.lastOk) $('lastOk').textContent = ft(S.lastOk);
 
-  // Gauge needle: 0%=-90deg, 100%=+90deg
   const angle = (sla/100)*180-90;
   $('hNeedle').setAttribute('transform',`rotate(${angle} 60 66)`);
-  // Arc: full=157, fill = (sla/100)*157
   const filled = (sla/100)*157;
   $('hArc').style.strokeDashoffset = 157-filled;
 
@@ -626,8 +903,9 @@ async function runStage(i, ftype) {
     renderPipe();
     await sl(700 + Math.random()*700);
 
-    // Failure gates
     let fail = false;
+
+    // ── Existing failure gates ──
     if (ftype==='drift' && i===1 && chk.id==='dr') {
       fail = true;
       addAlert('warn', stg.name, 'Drift climbing — threshold breach imminent', 'Monitoring...');
@@ -635,10 +913,21 @@ async function runStage(i, ftype) {
       addAlert('crit', stg.name, 'Drift score: 8.3% — threshold exceeded', 'PIPELINE BLOCKED — downstream protected');
     } else if (ftype==='data' && i===0 && chk.id==='an') {
       fail = true;
-      addAlert('crit', stg.name, 'Volume anomaly detected — abnormal record count', 'PIPELINE BLOCKED immediately');
+      addAlert('crit', stg.name, 'Volume anomaly detected — abnormal record count', 'CIRCUIT BREAKER TRIGGERED');
     } else if (ftype==='perf' && i===1 && chk.id==='pf') {
       fail = true;
       addAlert('crit', stg.name, 'Lift deviation at 11.2% — exceeds 10% threshold', 'PIPELINE BLOCKED — business protected');
+
+    // ── New simulation failure gates ──
+    } else if (ftype==='missing-data' && i===0 && chk.id==='hc') {
+      fail = true;
+      addAlert('crit', stg.name, 'Health check failed — no upstream data available', 'CIRCUIT BREAKER TRIGGERED — model run blocked');
+    } else if (ftype==='schema' && i===0 && chk.id==='di') {
+      fail = true;
+      addAlert('crit', stg.name, 'Schema mismatch — unexpected column types detected', 'CIRCUIT BREAKER TRIGGERED — downstream blocked');
+    } else if (ftype==='model-fail' && i===1 && chk.id==='hc') {
+      fail = true;
+      addAlert('crit', stg.name, 'Model execution failed — runtime error encountered', 'CIRCUIT BREAKER TRIGGERED — score egress blocked');
     }
 
     if (fail) {
@@ -671,6 +960,7 @@ async function revalidate() {
     cd--;
   }
   $('revalBanner').classList.remove('show');
+  hideCircuitBreaker();
   addAlert('info', 'DS Team', 'Revalidation complete — root cause addressed', 'Pipeline resuming');
 }
 
@@ -682,7 +972,6 @@ async function pipeline(injected=null) {
   S.running = true;
   S.runN++;
 
-  // Decide failure
   let ftype = injected;
   if (!ftype) {
     S.runsSinceFail++;
@@ -694,10 +983,9 @@ async function pipeline(injected=null) {
     S.runsSinceFail = 0;
   }
 
-  // Reset stages
   SS = STAGES.map(()=>({st:'idle',pct:0,chks:[]}));
   renderPipe();
-  addAlert('info', 'Pipeline', `Run #${S.runN} started`, ftype?`[${ftype.toUpperCase()} failure scenario active]`:'All systems nominal');
+  addAlert('info', 'Pipeline', `Run #${S.runN} started`, ftype?`[${ftype.toUpperCase()} scenario active]`:'All systems nominal');
 
   let failedAt = -1;
 
@@ -705,7 +993,6 @@ async function pipeline(injected=null) {
     if (S.paused) await waitResume();
 
     if (failedAt >= 0) {
-      // Block downstream
       SS[i] = { st:'blk', pct:0, chks: STAGES[i].checks.map(()=>'idle') };
       renderPipe();
       continue;
@@ -724,22 +1011,27 @@ async function pipeline(injected=null) {
       }
       renderPipe();
 
-      $('curStage').textContent = 'PIPELINE BLOCKED';
+      // Show circuit breaker banner
+      const isIngestionFail = ['missing-data','data','schema'].includes(ftype);
+      const cbMsg = isIngestionFail
+        ? `Data Ingestion failure — model run and all downstream stages blocked`
+        : `${STAGES[i].name} failure — downstream stages blocked`;
+      showCircuitBreaker(cbMsg);
+
+      $('curStage').textContent = 'PIPELINE PAUSED';
       $('curStage').style.color = 'var(--red)';
-      $('curLbl').textContent   = `Failure at: ${STAGES[i].name}`;
-      addAlert('crit', 'Pipeline Controller', `PIPELINE BLOCKED at stage ${i+1}: ${STAGES[i].name}`, 'Business consumption protected');
+      $('curLbl').textContent   = `Circuit breaker active — failure at: ${STAGES[i].name}`;
+      addAlert('crit', 'Circuit Breaker', `PIPELINE PAUSED at stage ${i+1}: ${STAGES[i].name}`, 'Business consumption protected');
 
       await revalidate();
 
-      // Normalize drift if drift event
       if (ftype==='drift') {
         await animDrift(S.drift, 3.1);
-        S.driftHist.push(8.3); // record the spike
+        S.driftHist.push(8.3);
         if (S.driftHist.length>10) S.driftHist.shift();
         drawSparkline();
       }
 
-      // Resume from failed stage
       addAlert('info', 'Pipeline', `Resuming from ${STAGES[i].name}`, 'Re-running with validated model');
       SS[i] = { st:'idle', pct:0, chks:[] };
       failedAt = -1;
@@ -753,7 +1045,6 @@ async function pipeline(injected=null) {
   }
 
   if (failedAt < 0) {
-    // Success
     S.lastOk = new Date();
     setBiz(true);
     $('curStage').textContent = 'COMPLETE';
@@ -807,7 +1098,7 @@ function togglePause() {
 }
 
 function injectDrift() {
-  if (S.running) { addAlert('warn','Control Panel','Pipeline running — injection queued for next run',''); S.pendingInject='drift'; return; }
+  if (S.running) { addAlert('warn','Control Panel','Pipeline running — drift queued for next run',''); S.pendingInject='drift'; return; }
   addAlert('warn','Control Panel','Manual drift injection triggered','Starting pipeline with DRIFT scenario');
   pipeline('drift');
 }
@@ -826,6 +1117,7 @@ function resetAll() {
   S.alerts=[];
   SS = STAGES.map(()=>({st:'idle',pct:0,chks:[]}));
 
+  hideCircuitBreaker();
   setDrift(3.0); drawSparkline(); renderPipe(); renderAlerts(); updateDash(); setBiz(true);
   $('curStage').textContent='IDLE'; $('curStage').style.color='var(--txt2)';
   $('curLbl').textContent='System reset — waiting for next run';
@@ -852,10 +1144,11 @@ function init() {
   updateDash();
   setDrift(3.0);
   drawSparkline();
+  renderModelInfo();
+  renderPerfMetrics();
   startTimer();
   addAlert('info','System','ML Pipeline Governance Agent initialized','Observability monitoring active');
   addAlert('info','System','Auto-run every 45 seconds','Use controls to inject failure scenarios');
-  // First run in 2s
   setTimeout(()=>{ if(!S.paused) pipeline(); }, 2000);
 }
 
