@@ -280,6 +280,110 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
 .neon-a{color:var(--amber)}
 .neon-b{color:var(--blue)}
 
+/* ── LOCKED STAGE ── */
+.stg.s-lck{border-color:var(--red);box-shadow:0 2px 12px rgba(239,68,68,.15);opacity:.7}
+.b-lck{background:rgba(239,68,68,.1);color:var(--red);border-color:var(--red2)}
+
+/* ── PIPELINE HOLD BANNER ── */
+.hold-banner{display:none;background:linear-gradient(135deg,rgba(239,68,68,.08),rgba(239,68,68,.02));border:2px solid var(--red);border-radius:10px;padding:16px 24px;text-align:center}
+.hold-banner.show{display:block}
+.hold-title{font-size:1rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:2px;margin-bottom:5px;animation:flash 1.5s infinite}
+.hold-sub{font-size:.65rem;color:var(--txt2);margin-bottom:10px}
+.hold-sla-wrap{display:inline-flex;align-items:center;gap:10px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.25);border-radius:6px;padding:8px 18px}
+.hold-sla-lbl{font-size:.62rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:1px}
+.hold-sla-time{font-size:1.5rem;font-weight:700;color:var(--red);font-family:monospace;letter-spacing:2px}
+.hold-inc-chip{display:inline-block;font-size:.62rem;font-weight:700;color:var(--amber);padding:3px 10px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.3);border-radius:4px;margin-top:8px}
+
+/* ── FALLBACK BANNER ── */
+.fallback-banner{display:none;background:linear-gradient(135deg,rgba(99,102,241,.07),rgba(16,185,129,.04));border:2px solid var(--blue);border-radius:10px;padding:14px 24px;text-align:center}
+.fallback-banner.show{display:block}
+.fallback-title{font-size:.88rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.fallback-sub{font-size:.65rem;color:var(--txt2);margin-bottom:8px}
+.fallback-chips{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.fallback-chip{font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:4px;border:1px solid}
+.fc-run{background:var(--bbg);color:var(--blue);border-color:var(--blue2)}
+.fc-time{background:var(--gbg);color:var(--green);border-color:var(--green2)}
+.fc-warn{background:var(--abg);color:var(--amber);border-color:var(--amber2)}
+
+/* ── EMAIL SENT NOTIFICATION ── */
+.email-sent-note{display:none;background:var(--gbg);border:1px solid var(--green2);border-radius:6px;padding:8px 16px;text-align:center;font-size:.67rem;font-weight:600;color:var(--green)}
+.email-sent-note.show{display:block}
+
+/* ── JIRA SECTION ── */
+.jira-section{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.jira-feed{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:10px;margin-top:10px}
+.jira-empty{text-align:center;color:var(--txt3);font-size:.68rem;padding:28px}
+.jira-card{background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:12px;transition:box-shadow .2s;animation:slideIn .25s ease}
+.jira-card:hover{box-shadow:0 3px 14px rgba(0,0,0,.09)}
+.jira-card.jp1{border-left:3px solid var(--red)}
+.jira-card.jp2{border-left:3px solid var(--orange)}
+.jira-card.jp3{border-left:3px solid var(--amber)}
+.jira-card-hdr{display:flex;align-items:center;gap:6px;margin-bottom:7px;flex-wrap:wrap}
+.jira-key{font-size:.62rem;font-weight:700;color:#0052cc;font-family:monospace}
+.jira-psev{font-size:.55rem;font-weight:700;padding:2px 6px;border-radius:3px;text-transform:uppercase;border:1px solid}
+.jp1 .jira-psev{background:rgba(239,68,68,.12);color:var(--red);border-color:var(--red2)}
+.jp2 .jira-psev{background:rgba(249,115,22,.12);color:var(--orange);border-color:var(--orange2)}
+.jp3 .jira-psev{background:rgba(245,158,11,.12);color:var(--amber);border-color:var(--amber2)}
+.jira-jsts{font-size:.55rem;font-weight:700;padding:2px 6px;border-radius:3px;text-transform:uppercase;border:1px solid;margin-left:auto}
+.jsts-open{background:rgba(239,68,68,.08);color:var(--red);border-color:var(--red2)}
+.jsts-escalated{background:rgba(249,115,22,.08);color:var(--orange);border-color:var(--orange2)}
+.jira-jtitle{font-size:.68rem;font-weight:700;color:var(--txt1);margin-bottom:8px;line-height:1.35}
+.jira-fields{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px}
+.jira-fld{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:5px 7px}
+.jira-fk{font-size:.52rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.7px}
+.jira-fv{font-size:.63rem;color:var(--txt1);font-weight:600;margin-top:1px}
+.jira-lbls{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}
+.jira-lbl{font-size:.52rem;font-weight:700;padding:2px 6px;border-radius:3px;background:var(--bbg);color:var(--blue);border:1px solid var(--border)}
+.jira-card-foot{display:flex;align-items:center;justify-content:space-between}
+.jira-sla-due{font-size:.57rem;color:var(--txt3)}
+.jira-sla-due strong{color:var(--red)}
+.jira-view-btn{padding:4px 11px;border-radius:4px;border:1px solid #0052cc;color:#0052cc;background:rgba(0,82,204,.07);font-size:.6rem;font-weight:700;cursor:pointer;transition:all .15s;text-transform:uppercase;letter-spacing:.4px}
+.jira-view-btn:hover{filter:brightness(.9);transform:translateY(-1px)}
+
+/* ── INC POC BADGE ── */
+.inc-poc{font-size:.58rem;font-weight:700;color:var(--blue);background:var(--bbg);border:1px solid var(--border);border-radius:3px;padding:2px 7px;display:inline-block;margin-bottom:5px}
+
+/* ── EMAIL OVERLAY ── */
+.email-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.38);z-index:2000;align-items:center;justify-content:center}
+.email-overlay.show{display:flex}
+.email-modal{background:var(--bg2);border:1px solid var(--border);border-radius:12px;width:min(600px,96vw);max-height:90vh;overflow-y:auto;box-shadow:0 16px 56px rgba(0,0,0,.2)}
+.email-mhdr{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.email-mhdr-left{flex:1;min-width:0}
+.email-mttl{font-size:.8rem;font-weight:700;color:var(--txt1)}
+.email-msub{font-size:.58rem;color:var(--txt3);margin-top:2px}
+.email-mclose{background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--txt3);padding:2px 7px;border-radius:4px;flex-shrink:0}
+.email-mclose:hover{background:var(--bg1);color:var(--txt1)}
+.email-mbody{padding:14px 18px}
+.email-row{margin-bottom:9px}
+.email-row-lbl{font-size:.57rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px}
+.email-row-val{background:var(--bg1);border:1px solid var(--border);border-radius:5px;padding:6px 10px;font-size:.67rem;color:var(--txt1);line-height:1.4}
+.email-body-pre{background:var(--bg1);border:1px solid var(--border);border-radius:5px;padding:10px 12px;font-size:.63rem;color:var(--txt2);line-height:1.65;white-space:pre-wrap;max-height:210px;overflow-y:auto;font-family:'Segoe UI',system-ui,sans-serif}
+.email-mfoot{padding:12px 18px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:flex-end;gap:8px}
+.email-mbtn{padding:6px 15px;border-radius:6px;font-size:.68rem;font-weight:700;cursor:pointer;transition:all .15s;text-transform:uppercase;letter-spacing:.4px}
+.email-mbtn-close{border:1px solid var(--border);background:var(--bg1);color:var(--txt2)}
+.email-mbtn-copy{border:1px solid var(--green);background:var(--gbg);color:var(--green)}
+.email-mbtn:hover{filter:brightness(.92)}
+
+/* ── JIRA POPUP ── */
+.jira-popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.38);z-index:2000;align-items:center;justify-content:center}
+.jira-popup-overlay.show{display:flex}
+.jira-popup-modal{background:var(--bg2);border-radius:12px;width:min(560px,96vw);max-height:90vh;overflow-y:auto;box-shadow:0 16px 56px rgba(0,0,0,.2);overflow:hidden}
+.jira-popup-hdr{background:linear-gradient(135deg,#0052CC,#0747A6);padding:14px 18px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.jira-popup-hdr-left{flex:1;min-width:0}
+.jira-popup-ttl{color:#fff;font-size:.8rem;font-weight:700}
+.jira-popup-sub{color:rgba(255,255,255,.72);font-size:.58rem;margin-top:2px}
+.jira-popup-close{background:rgba(255,255,255,.15);border:none;color:#fff;font-size:.9rem;cursor:pointer;padding:3px 8px;border-radius:4px;flex-shrink:0}
+.jira-popup-close:hover{background:rgba(255,255,255,.25)}
+.jira-popup-body{padding:16px 18px}
+.jira-popup-field{margin-bottom:10px}
+.jira-popup-flbl{font-size:.57rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px}
+.jira-popup-fval{font-size:.7rem;color:var(--txt1);background:var(--bg1);border:1px solid var(--border);border-radius:5px;padding:7px 10px;line-height:1.5}
+.jira-popup-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.jira-popup-foot{padding:12px 18px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.jira-popup-chip{font-size:.7rem;font-weight:700;color:#0052cc;font-family:monospace}
+.jira-popup-dismiss{padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:var(--bg1);color:var(--txt2);font-size:.68rem;font-weight:700;cursor:pointer;text-transform:uppercase}
+.jira-popup-dismiss:hover{filter:brightness(.95)}
+
 @media(max-width:1100px){
   .top-row{grid-template-columns:1fr 1fr}
   .bot-row{grid-template-columns:1fr}
@@ -435,6 +539,27 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
     <div class="cb-reason" id="cbReason">Critical failure detected</div>
   </div>
 
+  <!-- PIPELINE HOLD BANNER -->
+  <div class="hold-banner" id="holdBanner">
+    <div class="hold-title">&#x1F512; PIPELINE HELD — AWAITING INCIDENT RESOLUTION</div>
+    <div class="hold-sub">Downstream stages locked. Business consumption protected. Resolve the incident to release the pipeline.</div>
+    <div class="hold-sla-wrap">
+      <span class="hold-sla-lbl">SLA Remaining</span>
+      <span class="hold-sla-time" id="slaTime">60:00</span>
+    </div>
+    <div><span class="hold-inc-chip" id="holdIncId">Holding on: —</span></div>
+  </div>
+
+  <!-- FALLBACK BANNER -->
+  <div class="fallback-banner" id="fallbackBanner">
+    <div class="fallback-title">&#x26A1; FALLBACK ACTIVE — Business Consuming Scores from Previous Successful Run</div>
+    <div class="fallback-sub">SLA breach triggered score fallback protocol. Current run scores rejected. Previous validated scores reinstated.</div>
+    <div class="fallback-chips" id="fallbackChips"></div>
+  </div>
+
+  <!-- EMAIL SENT NOTIFICATION -->
+  <div class="email-sent-note" id="emailSentNote"></div>
+
   <!-- REVALIDATION BANNER -->
   <div class="reval" id="revalBanner">
     <div class="reval-ttl">DS Team Revalidating...</div>
@@ -510,11 +635,71 @@ body{background:var(--bg0);color:var(--txt1);font-family:'Segoe UI',system-ui,sa
 
   </div>
 
+  <!-- JIRA TICKET BOARD -->
+  <div class="jira-section">
+    <div class="sec-ttl">Auto-Generated Jira Tickets</div>
+    <div class="jira-feed" id="jiraFeed">
+      <div class="jira-empty">No tickets — pipeline operating normally</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- EMAIL DRAFT MODAL -->
+<div class="email-overlay" id="emailOverlay">
+  <div class="email-modal">
+    <div class="email-mhdr">
+      <div class="email-mhdr-left">
+        <div class="email-mttl">&#x2709; Auto-Generated Incident Email</div>
+        <div class="email-msub">Pre-drafted and ready to send — review and close to dispatch</div>
+      </div>
+      <button class="email-mclose" onclick="closeEmailModal()">&#x2715;</button>
+    </div>
+    <div class="email-mbody">
+      <div class="email-row"><div class="email-row-lbl">To</div><div class="email-row-val" id="emailTo">—</div></div>
+      <div class="email-row"><div class="email-row-lbl">CC</div><div class="email-row-val" id="emailCc">ml-governance@company.com, analytics-manager@company.com</div></div>
+      <div class="email-row"><div class="email-row-lbl">Subject</div><div class="email-row-val" id="emailSubject">—</div></div>
+      <div class="email-row"><div class="email-row-lbl">Body</div><div class="email-body-pre" id="emailBody">—</div></div>
+    </div>
+    <div class="email-mfoot">
+      <button class="email-mbtn email-mbtn-copy" onclick="copyEmail()">&#x1F4CB; Copy Email</button>
+      <button class="email-mbtn email-mbtn-close" onclick="closeEmailModal()">Close &amp; Mark Sent</button>
+    </div>
+  </div>
+</div>
+
+<!-- JIRA POPUP MODAL -->
+<div class="jira-popup-overlay" id="jiraPopupOverlay">
+  <div class="jira-popup-modal">
+    <div class="jira-popup-hdr">
+      <div class="jira-popup-hdr-left">
+        <div class="jira-popup-ttl" id="jpTitle">—</div>
+        <div class="jira-popup-sub">ML Pipeline Governance · MLOPS Project</div>
+      </div>
+      <button class="jira-popup-close" onclick="closeJiraPopup()">&#x2715;</button>
+    </div>
+    <div class="jira-popup-body" id="jpBody"></div>
+    <div class="jira-popup-foot">
+      <span class="jira-popup-chip" id="jpChip">—</span>
+      <button class="jira-popup-dismiss" onclick="closeJiraPopup()">Close</button>
+    </div>
+  </div>
 </div>
 
 <div class="footer">Built by <span>Raymond Pius</span> &nbsp;|&nbsp; ML Pipeline Governance Agent &nbsp;|&nbsp; Real-time Observability Dashboard</div>
 
 <script>
+// ═══════════════════════════════════════════════════════
+//  POC MAP (indexed by pipeline stage 0–4)
+// ═══════════════════════════════════════════════════════
+const POC_MAP = [
+  { name:'Data Engineering Lead',  team:'Data Engineering',        email:'de-lead@company.com',        escalation:'DE Manager',        escEmail:'de-manager@company.com' },
+  { name:'Data Science Lead',      team:'Data Science',            email:'ds-lead@company.com',        escalation:'DS Manager',        escEmail:'ds-manager@company.com' },
+  { name:'ML Ops Lead',            team:'ML Operations',           email:'mlops-lead@company.com',     escalation:'ML Ops Manager',    escEmail:'mlops-manager@company.com' },
+  { name:'Data Engineering Lead',  team:'Data Engineering',        email:'de-lead@company.com',        escalation:'DE Manager',        escEmail:'de-manager@company.com' },
+  { name:'Analytics Lead',         team:'Analytics and Campaigns', email:'analytics-lead@company.com', escalation:'Analytics Manager', escEmail:'analytics-manager@company.com' },
+];
+
 // ═══════════════════════════════════════════════════════
 //  MODEL REGISTRY DATA
 // ═══════════════════════════════════════════════════════
@@ -578,10 +763,10 @@ const RULES = [
   }
 ];
 
-function applyRules(ftype, stageName) {
+function applyRules(ftype, stageName, stageIdx) {
   const rule = RULES.find(r => r.match(ftype));
   if (!rule) return;
-  createIncident(ftype, stageName, rule);
+  createIncident(ftype, stageName, rule, stageIdx);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -593,7 +778,13 @@ const S = {
   alerts:[], runsSinceFail:0, pendingInject:null, nextIn:45, nextTimer:null,
   activeModel:'personalization', circuitOpen:false,
   incidents:[], selectedIncident:null, incidentCounter:0,
+  // Feature state
+  jiraTickets:[], jiraCounter:1041,
+  pipelineHeld:false, holdIncidentId:null, slaTimer:null, slaRemaining:3600,
+  slaBreached:false,
+  lastSuccessfulRun:null, fallbackActive:false,
 };
+let holdResolveCallback = null;
 
 // ═══════════════════════════════════════════════════════
 //  PIPELINE CONFIG
@@ -620,27 +811,36 @@ function waitResume() {
 // ═══════════════════════════════════════════════════════
 //  INCIDENT MANAGEMENT
 // ═══════════════════════════════════════════════════════
-function createIncident(ftype, stageName, rule) {
+function createIncident(ftype, stageName, rule, stageIdx) {
   S.incidentCounter++;
   const id = `INC-${String(S.incidentCounter).padStart(3,'0')}`;
+  const poc = POC_MAP[stageIdx] || POC_MAP[0];
+  const now = new Date();
   const inc = {
-    id, ftype, stageName,
+    id, ftype, stageName, stageIdx,
     title:          rule.getTitle(ftype),
     severity:       rule.severity,
     owner:          rule.owner,
     status:         'open',
-    createdAt:      ft(new Date()),
+    createdAt:      ft(now),
     rootCause:      rule.getRootCause(ftype),
     businessImpact: rule.getImpact(ftype),
     recommendation: rule.getRecommendation(ftype),
     runN:           S.runN,
+    poc,
   };
   S.incidents.unshift(inc);
   if (S.incidents.length > 15) S.incidents.pop();
-  addAlert('incident', 'Incident Manager', `${id} created — ${inc.severity.toUpperCase()} — assigned to ${inc.owner}`, `Rule: ${rule.actions.join(', ')}`);
+  // Auto Jira
+  const jira = createJiraTicket(inc);
+  inc.jiraId = jira.id;
+  // Auto email
+  showEmailModal(inc);
+  addAlert('incident', 'Incident Manager', `${id} created — ${inc.severity.toUpperCase()} — POC: ${poc.name}`, `Jira: ${jira.id} | Email drafted to ${poc.email}`);
   S.selectedIncident = id;
   renderIncidents();
   renderRCA();
+  renderJiraPanel();
 }
 
 function acknowledgeIncident(id) {
@@ -657,9 +857,10 @@ function resolveIncident(id) {
   if (!inc) return;
   inc.status = 'resolved';
   inc.resolvedAt = ft(new Date());
-  addAlert('info','Incident Manager',`${id} resolved — pipeline health restored`,'Incident closed');
+  addAlert('info','Incident Manager',`${id} resolved — pipeline hold released`,'Incident closed');
   renderIncidents();
   if (S.selectedIncident===id) renderRCA();
+  if (S.holdIncidentId === id) releasePipelineHold();
 }
 
 function escalateIncident(id) {
@@ -698,14 +899,18 @@ function renderIncidents() {
       ${inc.status!=='escalated' ? `<button class="inc-btn inc-btn-esc" onclick="event.stopPropagation();escalateIncident('${inc.id}')">Escalate</button>` : ''}
       <button class="inc-btn inc-btn-res" onclick="event.stopPropagation();resolveIncident('${inc.id}')">Resolve</button>
     ` : '';
+    const pocBadge = inc.poc ? `<span class="inc-poc">&#x1F464; ${inc.poc.name} &nbsp;·&nbsp; ${inc.poc.team}</span>` : '';
+    const jiraRef  = inc.jiraId ? `<span style="font-size:.55rem;color:var(--blue);font-family:monospace;margin-left:auto">${inc.jiraId}</span>` : '';
     return `<div class="inc-card${S.selectedIncident===inc.id?' inc-selected':''}" id="inc-${inc.id}" onclick="selectIncident('${inc.id}')">
       <div class="inc-card-hdr">
         <span class="inc-id">${inc.id}</span>
         <span class="sev-badge ${sevClass(inc.severity)}">${inc.severity}</span>
         <span class="sts-badge ${stsClass(inc.status)}">${inc.status}</span>
+        ${jiraRef}
       </div>
+      ${pocBadge}
       <div class="inc-title">${inc.title}</div>
-      <div class="inc-meta">Owner: ${inc.owner} &nbsp;|&nbsp; Run #${inc.runN} &nbsp;|&nbsp; ${inc.createdAt}${inc.resolvedAt?' &nbsp;|&nbsp; Resolved: '+inc.resolvedAt:''}</div>
+      <div class="inc-meta">Stage: ${inc.stageName} &nbsp;|&nbsp; Run #${inc.runN} &nbsp;|&nbsp; ${inc.createdAt}${inc.resolvedAt?' &nbsp;|&nbsp; Resolved: '+inc.resolvedAt:''}</div>
       <div class="inc-actions">${btns}</div>
     </div>`;
   }).join('');
@@ -831,10 +1036,10 @@ function renderPipe() {
   const row=$('pipeRow'); row.innerHTML='';
   STAGES.forEach((stg,i)=>{
     const ss=SS[i];
-    const sMap={idle:'s-idle',run:'s-run',chk:'s-chk',pass:'s-pass',fail:'s-fail',blk:'s-blk'};
-    const bMap={idle:'b-idle',run:'b-run',chk:'b-chk',pass:'b-pass',fail:'b-fail',blk:'b-blk'};
-    const lMap={idle:'IDLE',run:'RUNNING',chk:'CHECKING',pass:'PASS',fail:'FAILED',blk:'BLOCKED'};
-    const pColMap={idle:'var(--border)',run:'var(--blue)',chk:'var(--amber)',pass:'var(--green)',fail:'var(--red)',blk:'var(--grey)'};
+    const sMap={idle:'s-idle',run:'s-run',chk:'s-chk',pass:'s-pass',fail:'s-fail',blk:'s-blk',lck:'s-lck'};
+    const bMap={idle:'b-idle',run:'b-run',chk:'b-chk',pass:'b-pass',fail:'b-fail',blk:'b-blk',lck:'b-lck'};
+    const lMap={idle:'IDLE',run:'RUNNING',chk:'CHECKING',pass:'PASS',fail:'FAILED',blk:'BLOCKED',lck:'🔒 LOCKED'};
+    const pColMap={idle:'var(--border)',run:'var(--blue)',chk:'var(--amber)',pass:'var(--green)',fail:'var(--red)',blk:'var(--grey)',lck:'var(--red)'};
     const st=ss.st;
     const checks=stg.checks.map((c,ci)=>{
       const cs=ss.chks[ci]||'idle'; let ico='○',cls='';
@@ -984,6 +1189,242 @@ async function revalidate() {
 }
 
 // ═══════════════════════════════════════════════════════
+//  PIPELINE HOLD + SLA COUNTDOWN
+// ═══════════════════════════════════════════════════════
+function holdPipeline(incidentId) {
+  S.pipelineHeld=true; S.holdIncidentId=incidentId; S.slaRemaining=3600;
+  $('holdBanner').classList.add('show');
+  $('holdIncId').textContent=`Holding on: ${incidentId}`;
+  updateSLADisplay(); startSLACountdown();
+  addAlert('warn','Pipeline Hold',`Pipeline held — awaiting resolution of ${incidentId}`,'All downstream stages locked');
+  return new Promise(resolve => { holdResolveCallback=resolve; });
+}
+
+function releasePipelineHold() {
+  S.pipelineHeld=false; S.holdIncidentId=null; stopSLATimer();
+  $('holdBanner').classList.remove('show');
+  addAlert('info','Pipeline Hold','Pipeline hold released — resuming execution','');
+  if (holdResolveCallback) { holdResolveCallback(); holdResolveCallback=null; }
+}
+
+function stopSLATimer() {
+  if (S.slaTimer) { clearInterval(S.slaTimer); S.slaTimer=null; }
+}
+
+function startSLACountdown() {
+  stopSLATimer();
+  S.slaTimer = setInterval(()=>{
+    S.slaRemaining -= 60 * S.mult;
+    if (S.slaRemaining <= 0) {
+      S.slaRemaining=0; updateSLADisplay(); stopSLATimer();
+      triggerFallback(S.holdIncidentId);
+    } else { updateSLADisplay(); }
+  }, 1000);
+}
+
+function updateSLADisplay() {
+  const remaining = Math.max(0, S.slaRemaining);
+  const m = Math.floor(remaining/60), s = remaining%60;
+  const el = $('slaTime');
+  if (el) el.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+
+function triggerFallback(incidentId) {
+  S.slaBreached=true; S.fallbackActive=true;
+  addAlert('crit','SLA Breach',`SLA exceeded for ${incidentId} — activating score fallback protocol`,'Previous run scores reinstated');
+
+  // Update Jira ticket to escalated
+  const jira = S.jiraTickets.find(j=>j.incidentId===incidentId);
+  if (jira) {
+    jira.status='escalated';
+    jira.escalatedAt=ft(new Date());
+    renderJiraPanel();
+  }
+
+  // Show fallback banner
+  const run = S.lastSuccessfulRun;
+  const chips = [
+    `<span class="fallback-chip fc-run">Scores from Run #${run?run.runN:'N/A'}</span>`,
+    `<span class="fallback-chip fc-time">Last Valid: ${run?run.time:'—'}</span>`,
+    `<span class="fallback-chip fc-warn">SLA Breached — ${ft(new Date())}</span>`,
+  ].join('');
+  $('fallbackChips').innerHTML=chips;
+  $('fallbackBanner').classList.add('show');
+  setBiz(true);
+  $('bizStatus').innerHTML='Business: <strong style="color:var(--blue)">FALLBACK ACTIVE</strong>';
+
+  // Generate escalation email
+  const inc = S.incidents.find(i=>i.id===incidentId);
+  if (inc) {
+    const poc = inc.poc;
+    showEmailModal(inc, true);
+    addAlert('crit','Score Fallback',`SLA BREACHED — ${incidentId} escalated to ${poc?.escalation||'Manager'}`,'Escalation email generated');
+  }
+
+  // Release hold
+  if (holdResolveCallback) { holdResolveCallback(); holdResolveCallback=null; }
+}
+
+// ═══════════════════════════════════════════════════════
+//  JIRA TICKET ENGINE
+// ═══════════════════════════════════════════════════════
+function sevToP(severity) {
+  return severity==='critical'?'P1':severity==='high'?'P2':'P3';
+}
+
+function createJiraTicket(inc) {
+  const pLevel = sevToP(inc.severity);
+  const pClass = pLevel==='P1'?'jp1':pLevel==='P2'?'jp2':'jp3';
+  const now = new Date();
+  const slaDate = new Date(now.getTime()+60*60*1000);
+  const ticket = {
+    id: `MLOPS-${S.jiraCounter++}`,
+    incidentId: inc.id,
+    title: inc.title,
+    severity: inc.severity,
+    pLevel, pClass,
+    reporter: 'ML Governance Agent (Automated)',
+    assignee: inc.poc ? inc.poc.name : inc.owner,
+    stage: inc.stageName,
+    description: inc.rootCause,
+    status: 'open',
+    createdAt: ft(now),
+    slaDue: ft(slaDate),
+    labels: ['pipeline-failure','auto-generated','governance'],
+    escalatedAt: null,
+  };
+  S.jiraTickets.unshift(ticket);
+  return ticket;
+}
+
+function renderJiraPanel() {
+  const feed = $('jiraFeed');
+  if (!S.jiraTickets.length) {
+    feed.innerHTML='<div class="jira-empty">No tickets — pipeline operating normally</div>'; return;
+  }
+  feed.innerHTML = S.jiraTickets.map(t=>{
+    const statusCls = t.status==='escalated'?'jsts-escalated':'jsts-open';
+    return `<div class="jira-card ${t.pClass}">
+      <div class="jira-card-hdr">
+        <span class="jira-key">${t.id}</span>
+        <span class="jira-psev">${t.pLevel} ${t.severity.toUpperCase()}</span>
+        <span class="jira-jsts ${statusCls}">${t.status.toUpperCase()}</span>
+      </div>
+      <div class="jira-jtitle">${t.title}</div>
+      <div class="jira-fields">
+        <div class="jira-fld"><div class="jira-fk">Reporter</div><div class="jira-fv" style="font-size:.58rem">${t.reporter}</div></div>
+        <div class="jira-fld"><div class="jira-fk">Assignee</div><div class="jira-fv">${t.assignee}</div></div>
+        <div class="jira-fld"><div class="jira-fk">Stage</div><div class="jira-fv">${t.stage}</div></div>
+        <div class="jira-fld"><div class="jira-fk">Created</div><div class="jira-fv">${t.createdAt}</div></div>
+      </div>
+      <div class="jira-lbls">${t.labels.map(l=>`<span class="jira-lbl">${l}</span>`).join('')}</div>
+      <div class="jira-card-foot">
+        <span class="jira-sla-due">SLA Due: <strong>${t.slaDue}</strong>${t.escalatedAt?` &nbsp;|&nbsp; <span style="color:var(--orange)">Escalated ${t.escalatedAt}</span>`:''}</span>
+        <button class="jira-view-btn" onclick="showJiraPopup('${t.id}')">View in Jira</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function showJiraPopup(jiraId) {
+  const t = S.jiraTickets.find(j=>j.id===jiraId);
+  if (!t) return;
+  $('jpTitle').textContent=`${t.id} — ${t.pLevel} ${t.severity.toUpperCase()}`;
+  $('jpChip').textContent=t.id;
+  $('jpBody').innerHTML=`
+    <div class="jira-popup-field"><div class="jira-popup-flbl">Summary</div><div class="jira-popup-fval">${t.title}</div></div>
+    <div class="jira-popup-grid">
+      <div class="jira-popup-field"><div class="jira-popup-flbl">Status</div><div class="jira-popup-fval">${t.status.toUpperCase()}</div></div>
+      <div class="jira-popup-field"><div class="jira-popup-flbl">Priority</div><div class="jira-popup-fval">${t.pLevel} — ${t.severity.toUpperCase()}</div></div>
+      <div class="jira-popup-field"><div class="jira-popup-flbl">Reporter</div><div class="jira-popup-fval">${t.reporter}</div></div>
+      <div class="jira-popup-field"><div class="jira-popup-flbl">Assignee</div><div class="jira-popup-fval">${t.assignee}</div></div>
+      <div class="jira-popup-field"><div class="jira-popup-flbl">Stage</div><div class="jira-popup-fval">${t.stage}</div></div>
+      <div class="jira-popup-field"><div class="jira-popup-flbl">SLA Due</div><div class="jira-popup-fval" style="color:var(--red);font-weight:700">${t.slaDue}</div></div>
+    </div>
+    <div class="jira-popup-field"><div class="jira-popup-flbl">Description</div><div class="jira-popup-fval">${t.description}</div></div>
+    <div class="jira-popup-field"><div class="jira-popup-flbl">Labels</div><div class="jira-popup-fval">${t.labels.map(l=>`<span class="jira-lbl">${l}</span>`).join(' ')}</div></div>
+    ${t.escalatedAt?`<div class="jira-popup-field"><div class="jira-popup-flbl">Escalation</div><div class="jira-popup-fval" style="color:var(--orange)">Escalated at ${t.escalatedAt} — assigned to manager</div></div>`:''}
+  `;
+  $('jiraPopupOverlay').classList.add('show');
+}
+
+function closeJiraPopup() {
+  $('jiraPopupOverlay').classList.remove('show');
+}
+
+// ═══════════════════════════════════════════════════════
+//  EMAIL MODAL
+// ═══════════════════════════════════════════════════════
+function buildEmailBody(inc, isEscalation) {
+  const poc = inc.poc;
+  const recipient = isEscalation ? poc.escalation : poc.name;
+  const jiraId = inc.jiraId || '—';
+  const prefix = isEscalation ? '[ESCALATION] SLA BREACH' : `[${sevToP(inc.severity)} ${inc.severity.toUpperCase()}]`;
+  return `Dear ${recipient},
+
+This is an automated alert from the ML Pipeline Governance Agent.
+${isEscalation?'\n⚠️  SLA BREACH — This incident has been automatically escalated.\n':''}
+INCIDENT SUMMARY
+─────────────────────────────────────────
+Incident ID  : ${inc.id}
+Jira Ticket  : ${jiraId}
+Severity     : ${sevToP(inc.severity)} ${inc.severity.toUpperCase()}
+Stage        : ${inc.stageName}
+Status       : ${inc.status.toUpperCase()}
+Created      : ${inc.createdAt}
+${isEscalation?`Escalated    : ${ft(new Date())}\n`:''}
+ISSUE DESCRIPTION
+─────────────────────────────────────────
+${inc.title}
+
+${inc.rootCause}
+
+ACTION REQUIRED
+─────────────────────────────────────────
+${isEscalation
+  ? `Immediate manager intervention required.\nSLA has been breached. Score fallback protocol is now active.\nBusiness is consuming scores from the previous successful run.\nPlease coordinate resolution with ${poc.name} (${poc.email}).`
+  : `Please acknowledge and investigate this incident immediately.\nPipeline is currently HELD — business consumption BLOCKED\npending your resolution action in the ML Governance Dashboard.`}
+
+Jira Reference : ${jiraId}
+Pipeline URL   : https://ml-governance.internal/dashboard
+
+─────────────────────────────────────────
+Sent by: ML Governance Agent (Automated)
+Do not reply to this message.`;
+}
+
+function showEmailModal(inc, isEscalation=false) {
+  const poc = inc.poc;
+  const prefix = isEscalation ? '[ESCALATION] SLA BREACH' : `[${sevToP(inc.severity)} ${inc.severity.toUpperCase()}]`;
+  const toAddr = isEscalation ? `${poc.escalation} <${poc.escEmail}>` : `${poc.name} <${poc.email}>`;
+  const subject = `${prefix} ML Pipeline Failure — ${inc.stageName} — ${inc.createdAt}`;
+  $('emailTo').textContent      = toAddr;
+  $('emailSubject').textContent = subject;
+  $('emailBody').textContent    = buildEmailBody(inc, isEscalation);
+  $('emailOverlay').classList.add('show');
+}
+
+function closeEmailModal() {
+  $('emailOverlay').classList.remove('show');
+  const note = $('emailSentNote');
+  const inc = S.incidents[0];
+  if (inc) {
+    const poc = inc.poc;
+    note.textContent = `✓ Email sent to ${poc ? poc.name : 'POC'} and stakeholders`;
+    note.classList.add('show');
+    setTimeout(()=>note.classList.remove('show'), 4000);
+  }
+}
+
+function copyEmail() {
+  const body = $('emailBody').textContent;
+  const subj = $('emailSubject').textContent;
+  const to   = $('emailTo').textContent;
+  const full = `To: ${to}\nSubject: ${subj}\n\n${body}`;
+  navigator.clipboard.writeText(full).catch(()=>{});
+}
+
+// ═══════════════════════════════════════════════════════
 //  MAIN PIPELINE RUN
 // ═══════════════════════════════════════════════════════
 async function pipeline(injected=null) {
@@ -1005,28 +1446,37 @@ async function pipeline(injected=null) {
     const ok=await runStage(i,ftype);
     if (!ok) {
       failedAt=i; S.failN++; setBiz(false);
-      for (let j=i+1;j<STAGES.length;j++) SS[j]={st:'blk',pct:0,chks:STAGES[j].checks.map(()=>'idle')};
+      for (let j=i+1;j<STAGES.length;j++) SS[j]={st:'lck',pct:0,chks:STAGES[j].checks.map(()=>'idle')};
       renderPipe();
 
       // Circuit breaker
       const isIngestion=['missing-data','data','schema'].includes(ftype);
       showCircuitBreaker(isIngestion?'Data Ingestion failure — model run and all downstream stages blocked':`${STAGES[i].name} failure — downstream stages blocked`);
-      addAlert('crit','Circuit Breaker',`PIPELINE PAUSED at stage ${i+1}: ${STAGES[i].name}`,'Business consumption protected');
+      addAlert('crit','Circuit Breaker',`PIPELINE HELD at stage ${i+1}: ${STAGES[i].name}`,'Business consumption protected — awaiting operator resolution');
 
-      // Rule engine creates incident
-      applyRules(ftype, STAGES[i].name);
+      // Rule engine creates incident + Jira + email
+      applyRules(ftype, STAGES[i].name, i);
 
-      $('curStage').textContent='PIPELINE PAUSED'; $('curStage').style.color='var(--red)';
-      $('curLbl').textContent=`Circuit breaker active — failure at: ${STAGES[i].name}`;
+      $('curStage').textContent='PIPELINE HELD'; $('curStage').style.color='var(--red)';
+      $('curLbl').textContent=`Pipeline held — resolve ${S.incidents[0]?.id || 'incident'} to release`;
 
-      await revalidate();
+      // Capture last successful run before holding
+      if (S.lastOk) S.lastSuccessfulRun = { runN: S.runN-1, time: ft(S.lastOk) };
 
+      await holdPipeline(S.incidents[0]?.id);
+
+      if (S.slaBreached) {
+        S.slaBreached = false;
+        break;
+      }
+
+      hideCircuitBreaker();
       if (ftype==='drift') {
         await animDrift(S.drift,3.1);
         S.driftHist.push(8.3); if(S.driftHist.length>10)S.driftHist.shift(); drawSparkline();
       }
 
-      addAlert('info','Pipeline',`Resuming from ${STAGES[i].name}`,'Re-running with validated model');
+      addAlert('info','Pipeline',`Hold released — resuming from ${STAGES[i].name}`,'Re-running with validated data');
       SS[i]={st:'idle',pct:0,chks:[]}; failedAt=-1;
       for (let j=i;j<STAGES.length;j++) { const retry=await runStage(j,null); if(!retry){failedAt=j;break;} }
       break;
@@ -1035,12 +1485,15 @@ async function pipeline(injected=null) {
 
   if (failedAt<0) {
     S.lastOk=new Date(); setBiz(true);
+    S.lastSuccessfulRun = { runN: S.runN, time: ft(S.lastOk) };
+    S.fallbackActive = false;
+    $('fallbackBanner').classList.remove('show');
     $('curStage').textContent='COMPLETE'; $('curStage').style.color='var(--green)';
     $('curLbl').textContent='All stages passed — business consumption active';
     $('overallBar').style.width='100%'; $('overallBar').style.background='var(--green)';
     const nd=2.2+Math.random()*2.3; setDrift(nd);
     S.driftHist.push(+nd.toFixed(2)); if(S.driftHist.length>10)S.driftHist.shift(); drawSparkline();
-    addAlert('info','Pipeline',`Run #${S.runN} completed successfully`,'All gates passed');
+    addAlert('info','Pipeline',`Run #${S.runN} completed successfully`,'All gates passed — scores validated');
   }
   updateDash(); S.running=false;
 }
@@ -1075,13 +1528,22 @@ function injectData() {
 }
 function resetAll() {
   if(S.running)return;
+  stopSLATimer();
   S.runN=0;S.failN=0;S.lastOk=null;S.drift=3.0;
   S.driftHist=[3.0,2.8,3.1,2.9,3.4,3.2,3.0,3.3,2.9,3.0];
   S.runsSinceFail=0;S.pendingInject=null;S.alerts=[];
   S.incidents=[];S.selectedIncident=null;S.incidentCounter=0;
+  S.jiraTickets=[];S.jiraCounter=1041;
+  S.pipelineHeld=false;S.holdIncidentId=null;S.slaRemaining=3600;S.slaBreached=false;
+  S.lastSuccessfulRun=null;S.fallbackActive=false;
+  holdResolveCallback=null;
   SS=STAGES.map(()=>({st:'idle',pct:0,chks:[]}));
-  hideCircuitBreaker(); setDrift(3.0); drawSparkline(); renderPipe(); renderTimeline();
-  renderIncidents(); renderRCA(); updateDash(); setBiz(true);
+  hideCircuitBreaker();
+  $('holdBanner').classList.remove('show');
+  $('fallbackBanner').classList.remove('show');
+  $('emailSentNote').classList.remove('show');
+  setDrift(3.0); drawSparkline(); renderPipe(); renderTimeline();
+  renderIncidents(); renderRCA(); renderJiraPanel(); updateDash(); setBiz(true);
   $('curStage').textContent='IDLE';$('curStage').style.color='var(--txt2)';
   $('curLbl').textContent='System reset — waiting for next run';
   $('overallBar').style.width='0%';$('driftAlert').classList.remove('show');
@@ -1098,11 +1560,11 @@ function setSpd(mult,activeId) {
 //  INIT
 // ═══════════════════════════════════════════════════════
 function init() {
-  renderPipe(); renderTimeline(); renderIncidents(); renderRCA();
+  renderPipe(); renderTimeline(); renderIncidents(); renderRCA(); renderJiraPanel();
   updateDash(); setDrift(3.0); drawSparkline();
   renderModelInfo(); renderPerfMetrics(); startTimer();
   addAlert('info','System','ML Pipeline Governance Agent initialized','Observability monitoring active');
-  addAlert('info','System','Auto-run every 45 seconds','Use controls to inject failure scenarios');
+  addAlert('info','System','Auto-run every 45 seconds — POC assignment, Jira and email automation active','');
   setTimeout(()=>{ if(!S.paused) pipeline(); },2000);
 }
 init();
